@@ -1,0 +1,3 @@
+# Bloquea todo acceso web directo a esta carpeta.
+# El codigo PHP la sigue usando via require/include del sistema de archivos.
+Require all denied

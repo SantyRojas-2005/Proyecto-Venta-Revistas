@@ -1,0 +1,370 @@
+/* ============================================================
+   components.css - Botones, formularios, tablas, badges,
+   tarjetas de estadistica, toasts y modal.
+   ============================================================ */
+
+/* --- Botones --- */
+.btn {
+  display: inline-block;
+  font-family: var(--fuente-cuerpo);
+  font-size: 14px;
+  font-weight: 500;
+  padding: var(--esp-2) var(--esp-4);
+  border: 1px solid var(--color-tinta);
+  border-radius: var(--radio);
+  background: transparent;
+  color: var(--color-tinta);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.btn:hover {
+  background: var(--color-tinta);
+  color: var(--color-papel);
+}
+
+.btn--primario {
+  border-color: var(--color-terracota);
+  background: var(--color-terracota);
+  color: var(--color-blanco);
+}
+
+.btn--primario:hover {
+  border-color: var(--color-terracota-oscuro);
+  background: var(--color-terracota-oscuro);
+  color: var(--color-blanco);
+}
+
+.btn--peligro {
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+.btn--peligro:hover {
+  background: var(--color-error);
+  color: var(--color-blanco);
+}
+
+.btn--pequeno {
+  font-size: var(--texto-secundario);
+  padding: var(--esp-1) var(--esp-3);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* --- Formularios --- */
+.campo {
+  margin-bottom: var(--esp-4);
+}
+
+.campo label {
+  display: block;
+  font-size: var(--texto-secundario);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-gris);
+  margin-bottom: var(--esp-1);
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  font-family: var(--fuente-cuerpo);
+  font-size: 15px;
+  color: var(--color-tinta);
+  background: var(--color-blanco);
+  border: var(--borde-fino);
+  border-radius: var(--radio);
+  padding: var(--esp-2) var(--esp-3);
+  transition: border-color 0.15s ease;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--color-terracota);
+}
+
+.campo .error-campo {
+  display: none;
+  font-size: var(--texto-secundario);
+  color: var(--color-error);
+  margin-top: var(--esp-1);
+}
+
+.campo.invalido input,
+.campo.invalido select,
+.campo.invalido textarea {
+  border-color: var(--color-error);
+}
+
+.campo.invalido .error-campo {
+  display: block;
+}
+
+.form-fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--esp-4);
+}
+
+@media (max-width: 640px) {
+  .form-fila {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Barra de filtros sobre las tablas */
+.barra-filtros {
+  display: flex;
+  gap: var(--esp-3);
+  margin-bottom: var(--esp-4);
+  flex-wrap: wrap;
+}
+
+.barra-filtros input,
+.barra-filtros select {
+  font-family: var(--fuente-cuerpo);
+  font-size: 14px;
+  padding: var(--esp-2) var(--esp-3);
+  background: var(--color-blanco);
+  border: var(--borde-fino);
+  border-radius: var(--radio);
+}
+
+.barra-filtros input {
+  min-width: 240px;
+}
+
+/* --- Tablas: lineas horizontales finas, sin cebra --- */
+.tabla-envoltura {
+  background: var(--color-blanco);
+  border: var(--borde-fino);
+  border-radius: var(--radio);
+  overflow-x: auto;
+}
+
+table.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+
+.tabla th {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gris);
+  text-align: left;
+  padding: var(--esp-3) var(--esp-4);
+  border-bottom: 2px solid var(--color-tinta);
+  white-space: nowrap;
+}
+
+.tabla td {
+  padding: var(--esp-3) var(--esp-4);
+  border-bottom: var(--borde-fino);
+  vertical-align: middle;
+}
+
+.tabla tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tabla tbody tr:hover td {
+  background: var(--color-papel);
+}
+
+.tabla td.celda-acciones {
+  white-space: nowrap;
+}
+
+.tabla td.celda-acciones .btn+.btn {
+  margin-left: var(--esp-2);
+}
+
+.tabla .num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.tabla-vacia {
+  padding: var(--esp-6);
+  text-align: center;
+  color: var(--color-gris);
+}
+
+/* --- Badges de estado --- */
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 2px var(--esp-2);
+  border-radius: var(--radio);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.badge--activo,
+.badge--activa,
+.badge--entregado {
+  color: var(--color-exito);
+  background: var(--color-exito-fondo);
+  border-color: var(--color-exito);
+}
+
+.badge--inactivo,
+.badge--inactiva,
+.badge--cancelada,
+.badge--descontinuada,
+.badge--devuelto {
+  color: var(--color-error);
+  background: var(--color-error-fondo);
+  border-color: var(--color-error);
+}
+
+.badge--pendiente,
+.badge--vencida {
+  color: var(--color-aviso);
+  background: var(--color-aviso-fondo);
+  border-color: var(--color-aviso);
+}
+
+.badge--en_transito {
+  color: var(--color-gris);
+  background: var(--color-info-fondo);
+  border-color: var(--color-gris);
+}
+
+/* --- Tarjetas de estadistica (dashboard) --- */
+.grid-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--esp-4);
+  margin-bottom: var(--esp-6);
+}
+
+.stat {
+  background: var(--color-blanco);
+  border: var(--borde-fino);
+  border-radius: var(--radio);
+  padding: var(--esp-4) var(--esp-5);
+}
+
+.stat__cifra {
+  font-family: var(--fuente-titulos);
+  font-size: 40px;
+  font-weight: 550;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat--acento {
+  border-top: 3px solid var(--color-terracota);
+}
+
+/* --- Secciones tipo card --- */
+.panel {
+  background: var(--color-blanco);
+  border: var(--borde-fino);
+  border-radius: var(--radio);
+  padding: var(--esp-5);
+  margin-bottom: var(--esp-5);
+}
+
+.panel>h2,
+.panel>h3 {
+  padding-bottom: var(--esp-3);
+  margin-bottom: var(--esp-4);
+  border-bottom: var(--borde-fino);
+}
+
+/* --- Toasts (notificaciones) --- */
+#zona-toasts {
+  position: fixed;
+  bottom: var(--esp-5);
+  right: var(--esp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-2);
+  z-index: 1000;
+}
+
+.toast {
+  min-width: 260px;
+  max-width: 380px;
+  background: var(--color-blanco);
+  border: var(--borde-fino);
+  border-left: 3px solid var(--color-gris);
+  border-radius: var(--radio);
+  padding: var(--esp-3) var(--esp-4);
+  font-size: 14px;
+  box-shadow: 0 1px 4px rgba(26, 26, 24, 0.08);
+}
+
+.toast--exito {
+  border-left-color: var(--color-exito);
+}
+
+.toast--error {
+  border-left-color: var(--color-error);
+}
+
+/* --- Modal de confirmacion / formulario --- */
+.modal-fondo {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 26, 24, 0.45);
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 8vh var(--esp-4) var(--esp-4);
+  z-index: 900;
+  overflow-y: auto;
+}
+
+.modal-fondo.abierto {
+  display: flex;
+}
+
+.modal {
+  width: 100%;
+  max-width: 560px;
+  background: var(--color-blanco);
+  border: var(--borde-fino);
+  border-radius: var(--radio);
+  padding: var(--esp-5);
+}
+
+.modal__cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: var(--esp-3);
+  margin-bottom: var(--esp-4);
+  border-bottom: 2px solid var(--color-tinta);
+}
+
+.modal__cerrar {
+  background: none;
+  border: none;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--color-gris);
+}
+
+.modal__acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--esp-3);
+  margin-top: var(--esp-5);
+}

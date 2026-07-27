@@ -1,0 +1,51 @@
+/* ============================================================
+   tokens.css - Variables del sistema de diseno
+   Direccion editorial/print: papel, tinta, terracota.
+   ============================================================ */
+
+:root {
+  /* --- Paleta --- */
+  --color-papel:      #FAF8F4;  /* fondo general */
+  --color-tinta:      #1A1A18;  /* texto principal */
+  --color-terracota:  #C65A3B;  /* acento: botones, enlaces, estados activos */
+  --color-terracota-oscuro: #A8492E; /* hover del acento */
+  --color-gris:       #5F5E5A;  /* texto secundario */
+  --color-borde:      #D3D1C7;  /* lineas divisorias, bordes de tabla */
+  --color-blanco:     #FFFFFF;  /* superficies elevadas (cards, inputs) */
+
+  /* Estados semanticos, en tonos apagados coherentes con la paleta */
+  --color-exito:      #4A6B4F;
+  --color-exito-fondo:#EBF0EC;
+  --color-error:      #9C3D2E;
+  --color-error-fondo:#F6E9E6;
+  --color-aviso:      #8A6D2F;
+  --color-aviso-fondo:#F4EEDF;
+  --color-info-fondo: #EDEBE4;
+
+  /* --- Tipografia --- */
+  --fuente-titulos: 'Fraunces', Georgia, serif;
+  --fuente-cuerpo:  'Space Grotesk', 'Segoe UI', sans-serif;
+
+  --texto-h1: 32px;
+  --texto-h2: 24px;
+  --texto-h3: 18px;
+  --texto-cuerpo: 16px;
+  --texto-secundario: 13px;
+
+  /* --- Espaciado --- */
+  --esp-1: 4px;
+  --esp-2: 8px;
+  --esp-3: 12px;
+  --esp-4: 16px;
+  --esp-5: 24px;
+  --esp-6: 32px;
+  --esp-7: 48px;
+
+  /* --- Bordes y radios: finos y discretos, nada de burbujas --- */
+  --radio: 3px;
+  --borde-fino: 1px solid var(--color-borde);
+
+  /* --- Layout --- */
+  --ancho-sidebar: 232px;
+  --ancho-contenido-max: 1100px;
+}

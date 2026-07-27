@@ -1,0 +1,233 @@
+/* ============================================================
+   base.css - Reset ligero, tipografia y layout general
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--fuente-cuerpo);
+  font-size: var(--texto-cuerpo);
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--color-tinta);
+  background-color: var(--color-papel);
+  min-height: 100vh;
+}
+
+/* --- Jerarquia tipografica editorial --- */
+h1, h2, h3 {
+  font-family: var(--fuente-titulos);
+  font-weight: 550;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: var(--texto-h1); }
+h2 { font-size: var(--texto-h2); }
+h3 { font-size: var(--texto-h3); }
+
+p  { margin-bottom: var(--esp-3); }
+
+a {
+  color: var(--color-terracota);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+a:hover, a:focus-visible {
+  border-bottom-color: var(--color-terracota);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-terracota);
+  outline-offset: 2px;
+}
+
+.texto-secundario {
+  font-size: var(--texto-secundario);
+  color: var(--color-gris);
+}
+
+/* Etiqueta pequena en mayusculas, estilo folio de revista */
+.folio {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gris);
+}
+
+/* ============================================================
+   Layout del panel: sidebar fija + contenido
+   ============================================================ */
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: var(--ancho-sidebar);
+  flex-shrink: 0;
+  border-right: var(--borde-fino);
+  padding: var(--esp-5) var(--esp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-5);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar__marca {
+  font-family: var(--fuente-titulos);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  padding-bottom: var(--esp-4);
+  border-bottom: var(--borde-fino);
+}
+
+.sidebar__marca span {
+  color: var(--color-terracota);
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-grow: 1;
+}
+
+.sidebar__nav a {
+  display: block;
+  padding: var(--esp-2) var(--esp-3);
+  color: var(--color-tinta);
+  border: 1px solid transparent;
+  border-radius: var(--radio);
+  border-bottom: none;
+  font-size: 15px;
+  transition: background-color 0.15s ease;
+}
+
+.sidebar__nav a:hover {
+  background-color: var(--color-info-fondo);
+}
+
+.sidebar__nav a.activo {
+  border: 1px solid var(--color-terracota);
+  color: var(--color-terracota);
+  font-weight: 500;
+}
+
+.sidebar__usuario {
+  border-top: var(--borde-fino);
+  padding-top: var(--esp-4);
+  font-size: var(--texto-secundario);
+  color: var(--color-gris);
+}
+
+.sidebar__usuario strong {
+  display: block;
+  color: var(--color-tinta);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.contenido {
+  flex-grow: 1;
+  padding: var(--esp-6) var(--esp-7);
+  max-width: calc(var(--ancho-contenido-max) + 2 * var(--esp-7));
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Cabecera de pagina: folio + titulo serif + accion, como apertura de articulo */
+.cabecera-pagina {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--esp-4);
+  padding-bottom: var(--esp-4);
+  border-bottom: 2px solid var(--color-tinta);
+  margin-bottom: var(--esp-5);
+}
+
+.cabecera-pagina h1 {
+  margin-top: var(--esp-1);
+}
+
+/* --- Pie --- */
+.pie {
+  margin-top: var(--esp-7);
+  padding-top: var(--esp-4);
+  border-top: var(--borde-fino);
+  font-size: var(--texto-secundario);
+  color: var(--color-gris);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--esp-4);
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   Pagina de login: portada centrada
+   ============================================================ */
+
+.login-fondo {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--esp-5);
+}
+
+.login-caja {
+  width: 100%;
+  max-width: 400px;
+  background: var(--color-blanco);
+  border: var(--borde-fino);
+  border-radius: var(--radio);
+  padding: var(--esp-6);
+}
+
+.login-caja h1 {
+  font-size: 26px;
+  margin: var(--esp-2) 0 var(--esp-5);
+}
+
+.login-caja h1 span {
+  color: var(--color-terracota);
+}
+
+/* --- Responsive --- */
+@media (max-width: 860px) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    border-right: none;
+    border-bottom: var(--borde-fino);
+  }
+  .contenido { padding: var(--esp-5) var(--esp-4); }
+  .cabecera-pagina { flex-direction: column; align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

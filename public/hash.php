@@ -1,0 +1,1 @@
+<?php echo password_hash('operador123', PASSWORD_DEFAULT);
