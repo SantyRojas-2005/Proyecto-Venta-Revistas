@@ -10,8 +10,8 @@ USE revistas_domicilio;
 -- (hashes generados con password_hash de PHP, algoritmo bcrypt)
 -- ------------------------------------------------------------
 INSERT INTO usuario (nombre_usuario, password_hash, nombre_completo, rol) VALUES
-('admin',    '$2y$10$5Kk1sZ8G3yQxJ9d0mYVOKuOMGqOwyRfE3sQeXH0VZ97cWZ0hL6oOm', 'Santiago Administrador', 'administrador'),
-('operador', '$2y$10$eImiTXuWVxfM37uY4JANjQ0N6L1S7kZxRR2vYbqvVXHzGJ4y1a5aC', 'Operador de Turno',      'operador');
+('admin',    '$2y$10$UZq/LuV1MQ/uBZR1k3XqUea4axaG2efHjFqzg3iievaMrLl2f/Fli', 'Santiago Administrador', 'administrador'),
+('operador', '$2y$10$AOojWT9tMM0rg08UbxHjIuiG2KxlUna9kqvgSIGr40B9j3qklq5U.', 'Operador de Turno',      'operador');
 -- NOTA: si el login no acepta estas claves, ejecutar en PHP:
 --   echo password_hash('admin123', PASSWORD_DEFAULT);
 -- y reemplazar el hash con UPDATE usuario SET password_hash='...' WHERE nombre_usuario='admin';
