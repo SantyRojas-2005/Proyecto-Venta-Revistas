@@ -1,1 +1,1 @@
-<?php echo password_hash('operador123', PASSWORD_DEFAULT);
+<?php echo password_hash('admin123', PASSWORD_DEFAULT);
